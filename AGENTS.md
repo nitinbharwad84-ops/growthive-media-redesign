@@ -30,3 +30,4 @@ The workspace rules are divided into specialized, single-responsibility files in
 9. `@[Testing & Debugging](.agents/rules/08-testing-qa-and-debugging.md)` — Automated verification loop, Puppeteer browser validation, and error triage.
 10. `@[Teamwork & Hackathons](.agents/rules/09-teamwork-and-hackathons.md)` — Hackathon velocity mode, PRDs, client deliverables, and team dynamics.
 11. `@[Git & Version Control](.agents/rules/10-git-and-version-control.md)` — Conventional commits attributed to Nitin Bharwad, atomic branching, and PR preparation.
+12. `@[Skills & MCP Directory](.agents/rules/11-skills-and-mcp-directory.md)` — Definitive catalog and usage guide for all available skills and MCP servers.

@@ -1,11 +1,15 @@
 ---
 name: fullstack-scaffolder
-description: Rapid scaffolding and bootstrapping for modern Web apps (Next.js/React), Mobile apps (React Native/Expo/Android), and Windows Desktop apps (Tauri/Electron). Use when starting a new project, setting up directory architecture, or initializing multi-platform boilerplate.
+description: >-
+  Rapid scaffolding and bootstrapping for modern Web apps (Next.js/React),
+  Mobile apps (React Native/Expo/Android), and Windows Desktop apps (Tauri/Electron).
+  Use when starting a new project, setting up directory architecture, or initializing
+  multi-platform boilerplate.
 ---
 
 # Fullstack Scaffolder Skill
 
-This skill provides step-by-step instructions and command sequences to scaffold clean, production-ready projects across Web, Mobile, and Windows Desktop platforms.
+This skill provides step-by-step instructions and command sequences to scaffold clean, production-ready projects across Web, Mobile, and Windows Desktop platforms for Nitin Bharwad.
 
 ---
 

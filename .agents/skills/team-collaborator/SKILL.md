@@ -1,22 +1,25 @@
 ---
 name: team-collaborator
-description: Specialized workflows for team collaboration, client projects, and hackathons. Use when planning sprints, breaking down PRDs, writing pull requests, organizing task boards, reviewing code, or preparing hackathon demo pitches.
+description: >-
+  Specialized workflows for team collaboration, client projects, and hackathons.
+  Use when planning sprints, breaking down PRDs, writing pull requests, organizing
+  task boards, reviewing code, or preparing hackathon demo pitches.
 ---
 
 # Team Collaborator Skill
 
-This skill equips the agent with structured workflows to act as an active technical team partner, sprint facilitator, and hackathon co-pilot.
+This skill equips the agent with structured workflows to act as an active technical team partner, sprint facilitator, and hackathon co-pilot for Nitin Bharwad.
 
 ---
 
 ## When to Activate This Skill
 
-Activate when the user:
-- Mentions a **hackathon**, hackathon deadline, or pitch preparation.
-- Asks for **sprint planning**, task breakdown, or PRD (Product Requirements Document) conversion.
-- Requests a **code review**, pull request description, or git commit strategy.
-- Mentions working on a **client project**, client presentation, or stakeholder handoff.
-- Asks to coordinate with team members or simulate multiple technical roles (frontend, backend, design).
+Activate when Nitin or team members:
+- Mention a **hackathon**, hackathon deadline, or pitch preparation.
+- Ask for **sprint planning**, task breakdown, or PRD (Product Requirements Document) conversion.
+- Request a **code review**, pull request description, or git commit strategy.
+- Mention working on a **client project**, client presentation, or stakeholder handoff.
+- Ask to coordinate with team members or simulate multiple technical roles (frontend, backend, design).
 
 ---
 
