@@ -3,7 +3,7 @@
 > **Lead Developer & Owner:** **Nitin Bharwad**  
 > **Global Plugin:** `nitinbharwad-developer`
 
-This document is your root quick-reference for the complete developer setup, covering the **"Say a Task & Do It"** automation engine, all **10 MCP Servers**, all **Skills**, and multi-platform workflows (Web, Mobile, Windows Desktop, Teamwork/Hackathons).
+This document is your root quick-reference for the complete developer setup, covering the **"Say a Task & Do It"** automation engine, all active **MCP Servers**, all **Skills**, and multi-platform workflows (Web, Mobile, Windows Desktop, Teamwork/Hackathons).
 
 ---
 
@@ -56,7 +56,7 @@ Whenever Nitin issues any task (e.g., *"Build an auth modal with Supabase"*, *"S
 
 ## 3. Complete MCP Servers Directory
 
-All 10 servers are configured globally in `~/.gemini/config/mcp_config.json` and in `.agents/mcp_config.json`:
+The active zero-auth servers are configured globally in `~/.gemini/config/mcp_config.json` and in `.agents/mcp_config.json`:
 
 | MCP Server | Package / Source | Transport | Capabilities & Tools | When to Use |
 |---|---|---|---|---|
@@ -65,8 +65,7 @@ All 10 servers are configured globally in `~/.gemini/config/mcp_config.json` and
 | **`context7`** | `@upstash/context7-mcp` | Stdio (`npx`) | `resolve-library-id`, `query-docs` | Pulling version-specific, live documentation (Next.js 15, Tailwind v4) |
 | **`puppeteer`** | `@modelcontextprotocol/server-puppeteer` | Stdio (`npx`) | `puppeteer_navigate`, `puppeteer_screenshot`, `puppeteer_click`, `puppeteer_fill` | Local UI testing, clicking buttons, submitting forms, visual screenshot verification |
 | **`vercel`** | `https://mcp.vercel.com` | Stdio bridge | 200+ deployment, DNS, domain, observability, and runtime error tools | Deployments, preview links, diagnosing runtime errors, custom domain configs |
-| **`supabase`** | `https://mcp.supabase.com/mcp` | Streamable HTTP | Database migrations, SQL queries, user authentication, RLS policies, storage | Setting up backend Postgres tables, auth flows, and edge functions |
-| **`postgres`** | `@modelcontextprotocol/server-postgres` | Stdio (`npx`) | Direct SQL queries, schema inspection | Local or remote PostgreSQL databases, running complex analytics queries |
+| **`postgres`** | `@modelcontextprotocol/server-postgres` | Stdio (`npx`) | Direct SQL queries, schema inspection, Supabase PostgreSQL connection | Local or remote PostgreSQL databases, running complex analytics queries |
 | **`github`** | `@modelcontextprotocol/server-github` | Stdio (`npx`) | PR management, issue tracking, repo search, GitHub Projects v2 boards | Creating PRs, reviewing code changes, managing team issues and sprint tickets |
 | **`sequential-thinking`** | `@modelcontextprotocol/server-sequential-thinking` | Stdio (`npx`) | `sequentialthinking` dynamic reasoning loop | Complex system design, difficult algorithmic debugging, major refactorings |
 | **`filesystem`** | `@modelcontextprotocol/server-filesystem` | Stdio (`npx`) | Sandboxed file search, read, write, directory trees | Scanning multi-directory project trees, bulk file checks |

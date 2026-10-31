@@ -60,9 +60,6 @@
         "@modelcontextprotocol/server-sequential-thinking"
       ]
     },
-    "supabase": {
-      "url": "https://mcp.supabase.com/mcp"
-    },
     "filesystem": {
       "command": "npx",
       "args": [
