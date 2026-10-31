@@ -1,54 +1,32 @@
 # Growthive Media — Master Workspace Directives
 
-Welcome to **Growthive Media**. This project workspace is configured for full-stack multi-platform engineering across **Web**, **Mobile**, and **Windows Desktop** applications, paired with strict standards for **Team Collaboration**, **Client Deliverables**, and **Hackathon Sprints**.
+Welcome to **Growthive Media**, owned and directed by **Nitin Bharwad**. This workspace is configured for full-stack multi-platform engineering across **Web**, **Mobile**, and **Windows Desktop** applications, paired with strict standards for **Autonomous Task Execution**, **Team Collaboration**, **Client Deliverables**, and **Hackathon Sprints**.
 
 ---
 
 ## 1. Core Operating Principles
 
-1. **Precision & Verification**: Do not guess or assume. Always verify file structures, dependencies, build logs, and runtime outputs before concluding any task.
-2. **Security & Zero Leaks**: Never hardcode API keys, database credentials, or tokens in codebase files. Utilize `.env.local` or environment variables and follow the safe credentials protocol.
-3. **Automated Tool Routing**: Whenever processing user requests, automatically evaluate the prompt against the **Tool Routing Matrix** in `.agents/rules/01-tool-routing-matrix.md` and trigger the appropriate MCP servers and skills.
-4. **Clean Code & Modularity**: Write idiomatic, strictly-typed TypeScript/Kotlin/Rust code with clean architectural separation (UI components, services, state management, API routes).
-5. **Team & Client Empathy**: Format deliverables, pull requests, and architecture notes so team members or non-technical clients can immediately understand changes, test flows, and business value.
+1. **Owner & Lead Developer**: **Nitin Bharwad**. All commits, configurations, documentation, and architecture decisions are tailored to Nitin's standards.
+2. **"Say a Task & Do It" Automation**: When Nitin assigns a task, execute it autonomously end-to-end (decompose -> code -> self-correct -> test -> deliver) without pausing for trivial confirmations.
+3. **Automated Tool & MCP Routing**: Automatically evaluate every prompt against the **Tool Routing Matrix** and trigger the corresponding MCP servers (`shadcn`, `21st`, `context7`, `puppeteer`, `vercel`, `supabase`, `github`, `sequential-thinking`).
+4. **Precision & Verification**: Never declare a task complete without static checks (`tsc --noEmit`), build verification, and runtime/browser inspection (`puppeteer`).
+5. **Security & Zero Leaks**: Never hardcode API keys, database credentials, or tokens in codebase files. Store secrets safely in `.env.local` or environment variables following the `credentials` skill protocol.
+6. **Team & Client Empathy**: Format deliverables, pull requests, and architecture notes so team members, hackathon judges, or non-technical clients can immediately understand changes, test flows, and business value.
 
 ---
 
-## 2. Platform Specialization Guidelines
+## 2. Modular Rules Index
 
-- **Web Stack (Next.js / React / Tailwind)**:
-  - Adhere to modern App Router patterns, React Server Components (RSC) where appropriate, and fast responsive layouts.
-  - Prioritize `shadcn/ui` and `21st.dev` for rapid, accessible UI development.
-  - Follow the web rules in `.agents/rules/02-web-workflows.md`.
+The workspace rules are divided into specialized, single-responsibility files inside `.agents/rules/`:
 
-- **Mobile Stack (Android / React Native / Flutter)**:
-  - Utilize `android-cli`, `android-device-hub`, and `compose-preview` for native Android development.
-  - Keep layout hierarchies flat, support dark/light modes, and handle offline/loading states gracefully.
-  - Follow the mobile rules in `.agents/rules/03-mobile-workflows.md`.
-
-- **Windows Desktop (Tauri v2 / Electron)**:
-  - Favor lightweight, secure Tauri architectures or modern Electron setups.
-  - Respect Windows filesystem and sandbox execution rules (PowerShell commands, native path conventions).
-  - Follow the desktop rules in `.agents/rules/04-desktop-windows-workflows.md`.
-
-- **Testing & Debugging**:
-  - Always verify UI behavior using the active `puppeteer` MCP server or Chrome DevTools.
-  - Inspect console errors and network requests when debugging.
-  - Follow the testing rules in `.agents/rules/05-testing-and-debugging.md`.
-
-- **Teamwork, Client Projects & Hackathons**:
-  - For hackathons, prioritize working end-to-end MVPs and rapid feedback loops over premature micro-optimizations.
-  - For client projects, enforce rigorous documentation, test coverage, and clear deployment steps.
-  - Follow the collaboration rules in `.agents/rules/06-teamwork-and-hackathons.md` and activate the `team-collaborator` skill.
-
----
-
-## 3. Rule Index
-
-Detailed specialized rules are modularized within `.agents/rules/`:
-- `@[Tool Routing Matrix](.agents/rules/01-tool-routing-matrix.md)`
-- `@[Web Workflows](.agents/rules/02-web-workflows.md)`
-- `@[Mobile Workflows](.agents/rules/03-mobile-workflows.md)`
-- `@[Desktop Workflows](.agents/rules/04-desktop-windows-workflows.md)`
-- `@[Testing & Debugging](.agents/rules/05-testing-and-debugging.md)`
-- `@[Teamwork & Hackathons](.agents/rules/06-teamwork-and-hackathons.md)`
+1. `@[Developer Profile](.agents/rules/00-developer-profile.md)` — Persona, owner expectations, and code quality benchmarks.
+2. `@[Autonomous Task Execution](.agents/rules/01-autonomous-task-execution.md)` — The "Say a Task & Do It" auto-execution and remediation engine.
+3. `@[Tool & MCP Routing](.agents/rules/02-tool-and-mcp-routing.md)` — Automated prompt-to-MCP/skill dispatch table.
+4. `@[Web Development](.agents/rules/03-web-development.md)` — Next.js App Router, React Server Components, TypeScript strictness, and Tailwind CSS.
+5. `@[Mobile Development](.agents/rules/04-mobile-development.md)` — Android CLI & Device Hub, Compose preview, React Native, and Flutter.
+6. `@[Desktop Windows Development](.agents/rules/05-desktop-windows-development.md)` — Tauri v2, Electron, PowerShell scripting, and Windows sandboxing.
+7. `@[UI/UX & Design System](.agents/rules/06-ui-ux-and-design-system.md)` — Design tokens, theming, `shadcn/ui`, and `21st.dev` integration.
+8. `@[Database & Backend](.agents/rules/07-database-and-backend.md)` — PostgreSQL, Supabase, Prisma/Drizzle ORM, and Row Level Security (RLS).
+9. `@[Testing & Debugging](.agents/rules/08-testing-qa-and-debugging.md)` — Automated verification loop, Puppeteer browser validation, and error triage.
+10. `@[Teamwork & Hackathons](.agents/rules/09-teamwork-and-hackathons.md)` — Hackathon velocity mode, PRDs, client deliverables, and team dynamics.
+11. `@[Git & Version Control](.agents/rules/10-git-and-version-control.md)` — Conventional commits attributed to Nitin Bharwad, atomic branching, and PR preparation.

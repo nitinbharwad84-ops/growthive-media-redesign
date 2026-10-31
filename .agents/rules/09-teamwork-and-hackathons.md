@@ -1,6 +1,6 @@
 # Team Collaboration, Hackathons & Client Deliverables
 
-This rule governs teamwork dynamics, version control etiquette, hackathon sprint velocity, and client-ready communication.
+This rule governs teamwork dynamics, version control etiquette, hackathon sprint velocity, and client-ready communication for Nitin Bharwad.
 
 ---
 
@@ -22,27 +22,8 @@ This rule governs teamwork dynamics, version control etiquette, hackathon sprint
 
 ---
 
-## 2. Teamwork & Git Version Control Protocol
+## 2. Team Collaboration Tools
 
-1. **Atomic Branching**:
-   - Feature branches: `feat/<feature-name>`
-   - Bug fixes: `fix/<issue-name>`
-   - Hackathon experiments: `spike/<idea-name>`
-2. **Conventional Commits**:
-   - Format: `feat(scope): concise description` / `fix(scope): concise description`
-   - Examples:
-     - `feat(auth): integrate Supabase social login`
-     - `fix(checkout): resolve price calculation discrepancy on mobile`
-3. **Pull Request (PR) Preparation**:
-   - Provide a clear PR summary with:
-     - **What Changed**: Bullet points of architectural changes.
-     - **Why**: Context or link to issue/ticket.
-     - **How to Test**: Step-by-step instructions for the reviewer.
-     - **Screenshots / GIFs**: Visual before-and-after proof.
-
----
-
-## 3. Communication Standards
-
-- **Clarity over Jargon**: Explain technical tradeoffs clearly so both developers and stakeholders can make informed decisions.
-- **Blameless Problem Solving**: When encountering existing errors in a shared codebase, diagnose root causes constructively and offer remediation options.
+- Activate the `team-collaborator` skill for automated PRD breakdowns, sprint task lists, and pitch preparation.
+- Use `github` MCP (`@modelcontextprotocol/server-github`) to inspect PRs, review code changes, and update project issue boards.
+- Keep all communication blameless, structured, and focused on technical solutions.
