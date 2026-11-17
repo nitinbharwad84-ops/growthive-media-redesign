@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -8,39 +9,47 @@ interface LogoProps {
   href?: string;
 }
 
+/**
+ * The GrowthiveMedia mark uses the supplied client asset
+ * (`public/images/logo-icon.png`) rather than a redrawn glyph. A vector file
+ * would sharpen it further and is still pending from the client.
+ */
 export function GrowthiveLogo({ className, size = "md", href = "/" }: LogoProps) {
-  const iconDimensions = {
-    sm: 22,
-    md: 28,
-    lg: 36,
+  const markSizes = {
+    sm: 26,
+    md: 30,
+    lg: 38,
   };
 
   const textSizes = {
-    sm: "text-base tracking-tight",
-    md: "text-lg tracking-tight",
-    lg: "text-xl tracking-tight",
+    sm: "text-base",
+    md: "text-lg",
+    lg: "text-xl",
   };
 
   const content = (
-    <div className={cn("inline-flex items-center gap-2 group cursor-pointer select-none", className)}>
-      {/* Brand icon: abstract "G" made of dots */}
-      <div className="relative flex items-center justify-center shrink-0">
-        <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30 relative">
-          G
-          <span className="absolute -right-1 -bottom-1 w-3 h-3 rounded-full bg-violet-300 border-2 border-white animate-bounce" />
-        </div>
-      </div>
-
-      {/* Brand Wordmark */}
-      <span className={cn("font-extrabold text-gray-900", textSizes[size])}>
-        Growthive<span className="text-primary italic">Media</span>
+    <span className={cn("inline-flex items-center gap-2.5 select-none", className)}>
+      <Image
+        src="/images/logo-icon.png"
+        alt="GrowthiveMedia"
+        width={markSizes[size]}
+        height={markSizes[size]}
+        className="shrink-0 rounded-[10px]"
+        priority
+      />
+      <span className={cn("font-extrabold tracking-tight text-foreground", textSizes[size])}>
+        Growthive<span className="text-accent">Media</span>
       </span>
-    </div>
+    </span>
   );
 
   if (href) {
     return (
-      <Link href={href} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg inline-block">
+      <Link
+        href={href}
+        aria-label="GrowthiveMedia home"
+        className="inline-block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      >
         {content}
       </Link>
     );

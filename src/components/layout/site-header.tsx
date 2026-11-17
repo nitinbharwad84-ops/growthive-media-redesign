@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { GrowthiveLogo } from "@/components/brand/logo";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
@@ -10,123 +11,105 @@ import { cn } from "@/lib/utils";
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const toggleRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 16);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      setMobileMenuOpen(false);
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+  // Escape closes the drawer and returns focus to the toggle that opened it.
+  React.useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        toggleRef.current?.focus();
       }
-    }
-  };
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileMenuOpen]);
+
+  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-gray-200/60 py-3.5 shadow-sm"
-          : "bg-white/70 backdrop-blur-md py-5"
+          ? "border-b border-border/60 bg-background/85 backdrop-blur-xl"
+          : "border-b border-transparent bg-background/40 backdrop-blur-sm"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <GrowthiveLogo size="md" />
 
-        {/* Desktop Navigation */}
         <nav
-          aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-1 lg:gap-2 px-4 py-1.5 rounded-full bg-white/70 border border-gray-200/60 backdrop-blur-md"
+          aria-label="Main navigation"
+          className="hidden items-center gap-1 rounded-full border border-border/60 bg-surface/70 px-2 py-1.5 backdrop-blur-md md:flex"
         >
           {siteConfig.navItems.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className="px-3.5 py-1.5 rounded-full text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200"
+              className="rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        {/* Action Button */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button
-            size="default"
-            variant="default"
-            onClick={() => {
-              const el = document.querySelector("#brand-enquiry");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="group font-medium rounded-full px-5"
-          >
-            <span>Work With Us</span>
-            <ArrowUpRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <div className="hidden items-center gap-3 md:flex">
+          <Button asChild size="default" className="group rounded-full px-5">
+            <Link href="/contact">
+              <span>Work With Us</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </Button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
         <button
+          ref={toggleRef}
           type="button"
           aria-expanded={mobileMenuOpen}
-          aria-label="Toggle navigation menu"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden inline-flex items-center justify-center p-2 rounded-xl text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          aria-controls="mobile-navigation"
+          aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          className="inline-flex items-center justify-center rounded-xl p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-full bg-white/98 backdrop-blur-xl border-b border-gray-200 px-6 py-8 shadow-sm transition-all duration-200 animate-in fade-in slide-in-from-top-4">
-          <div className="flex flex-col space-y-4">
+        <div
+          id="mobile-navigation"
+          className="border-b border-border/60 bg-background/95 backdrop-blur-xl md:hidden"
+        >
+          <nav aria-label="Mobile navigation" className="flex flex-col px-6 pb-8 pt-2">
             {siteConfig.navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-lg font-medium text-gray-700 hover:text-gray-900 py-2 border-b border-gray-100 transition-colors"
+                onClick={closeMenu}
+                className="border-b border-border/40 py-3.5 text-base font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:text-foreground"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
 
-            <div className="pt-4 flex flex-col gap-3">
-              <Button
-                size="lg"
-                variant="default"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  const el = document.querySelector("#brand-enquiry");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="w-full justify-center rounded-xl"
-              >
-                <span>Work With Us</span>
-                <ArrowUpRight className="w-4 h-4 ml-1.5" />
+            <div className="pt-6">
+              <Button asChild size="lg" className="w-full justify-center rounded-xl">
+                <Link href="/contact" onClick={closeMenu}>
+                  <span>Work With Us</span>
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </Button>
-
-              <a
-                href="#for-creators"
-                onClick={(e) => handleNavClick(e, "#for-creators")}
-                className="text-center text-sm font-medium text-gray-600 hover:text-gray-900 py-2"
-              >
-                Are you a creator? Apply here →
-              </a>
             </div>
-          </div>
+          </nav>
         </div>
       )}
     </header>

@@ -8,103 +8,98 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="relative border-t border-white/[0.08] bg-[#07070A] pt-16 pb-12 overflow-hidden">
-      {/* Subtle top glow line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
+    <footer id="contact" className="relative overflow-hidden border-t border-border/60 bg-surface/40">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/[0.06]">
-          {/* Brand Col */}
-          <div className="md:col-span-5 flex flex-col justify-between space-y-6">
+      <div className="mx-auto max-w-7xl px-4 pb-12 pt-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 border-b border-border/60 pb-14 md:grid-cols-12">
+          <div className="flex flex-col justify-between gap-6 md:col-span-5">
             <div className="space-y-4">
               <GrowthiveLogo size="lg" />
-              <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
-                GrowthiveMedia connects AI and technology brands with creators to bring products, tools and ideas to the right audiences through influencer marketing campaigns.
+              <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+                {siteConfig.description}
               </p>
             </div>
 
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
-                Direct Communication
+                Direct communication
               </span>
-              <div className="flex flex-col space-y-1.5 text-sm">
+              <div className="flex flex-col gap-2 text-sm">
                 <a
                   href={`mailto:${siteConfig.contactEmail}`}
-                  className="inline-flex items-center gap-2 text-violet-300 hover:text-violet-200 transition-colors"
+                  className="inline-flex items-center gap-2 text-accent transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <Mail className="w-4 h-4 text-violet-400" />
+                  <Mail className="h-4 w-4 text-primary" />
                   <span className="font-mono">{siteConfig.contactEmail}</span>
-                  <span className="text-xs text-muted-foreground">(Campaign Enquiries)</span>
+                  <span className="text-xs text-muted-foreground">(Campaign enquiries)</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.agencyEmail}`}
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <Mail className="w-4 h-4 text-muted-foreground" />
+                  <Mail className="h-4 w-4 text-muted-foreground" />
                   <span className="font-mono">{siteConfig.agencyEmail}</span>
-                  <span className="text-xs text-muted-foreground/80">(Agency Contact)</span>
+                  <span className="text-xs text-muted-foreground/80">(Agency contact)</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Quick Navigation Links */}
-          <div className="md:col-span-3 space-y-4">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+          <nav aria-label="Footer navigation" className="md:col-span-3">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">
               Navigation
-            </h4>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
+            </h2>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               {siteConfig.navItems.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
-                    className="hover:text-white transition-colors inline-flex items-center gap-1 group"
+                    className="group inline-flex items-center gap-1 transition-colors hover:text-foreground"
                   >
                     <span>{item.label}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-violet-400" />
-                  </a>
+                    <ArrowUpRight className="h-3.5 w-3.5 -translate-x-1 translate-y-1 text-primary opacity-0 transition-all group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Services Col */}
-          <div className="md:col-span-4 space-y-4">
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
-              Campaign Capabilities
-            </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+          <nav aria-label="Campaign capabilities" className="md:col-span-4">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Campaign capabilities
+            </h2>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {siteConfig.services.map((service) => (
                 <li key={service.id}>
-                  <a
-                    href="#services"
-                    className="hover:text-violet-300 transition-colors flex items-center justify-between group py-1"
+                  <Link
+                    href="/services"
+                    className="group flex items-center justify-between py-1 transition-colors hover:text-foreground"
                   >
                     <span className="truncate pr-2">{service.title}</span>
-                    <span className="text-xs font-mono text-muted-foreground/60 group-hover:text-violet-400">
+                    <span className="font-mono text-xs text-muted-foreground/60 group-hover:text-primary">
                       {service.number}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 text-xs text-muted-foreground sm:flex-row">
           <p>© {currentYear} GrowthiveMedia. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
-              className="hover:text-white transition-colors flex items-center gap-1.5"
+              className="flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-violet-400" />
-              <span>Privacy Policy (Draft Demo)</span>
+              <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+              <span>Privacy Policy (draft)</span>
             </Link>
             <span className="text-muted-foreground/40">•</span>
-            <span>Presentation Demo Build</span>
+            <span>Presentation build</span>
           </div>
         </div>
       </div>
