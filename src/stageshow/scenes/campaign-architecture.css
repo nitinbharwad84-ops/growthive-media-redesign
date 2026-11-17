@@ -1,0 +1,268 @@
+/* GrowthiveMedia "Campaign Delivery" scene.
+   The kit owns the parts' geometry; this file only places them. */
+
+.ca-stage {
+  --ca-gap: 14px;
+}
+
+.ca-window {
+  width: 100%;
+  height: 100%;
+}
+
+.ca-body {
+  padding: 0;
+  background: #0d0d14;
+}
+
+.ca-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* The kit's chip holds one label span; ours holds an icon and a word, so the
+   label becomes a row of its own (the kit's own geometry is untouched). */
+.ca-window .ss-chip__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Pipeline strip */
+.ca-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ca-step {
+  opacity: 0.45;
+}
+
+.ca-step[data-active],
+.ca-step[data-done] {
+  opacity: 1;
+}
+
+.ca-step[data-active] {
+  color: #ddd6fe;
+}
+
+/* Two-column body */
+.ca-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 232px;
+  gap: 0;
+  min-height: 0;
+  flex: 1;
+}
+
+.ca-grid[data-layout="compact"] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ca-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 16px;
+  min-height: 0;
+}
+
+.ca-state {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ca-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+.ca-dim {
+  font-size: 11px;
+  color: #a1a1aa;
+}
+
+.ca-filler {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ca-filler--tight {
+  gap: 6px;
+}
+
+.ca-cta {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+/* Match rows */
+.ca-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.ca-row {
+  cursor: pointer;
+}
+
+.ca-dot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: #3f3f46;
+}
+
+.ca-dot[data-tone="2"] {
+  background: #6d5bd0;
+}
+
+.ca-dot[data-tone="3"] {
+  background: #4c4a63;
+}
+
+/* Flight plan */
+.ca-formats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ca-format {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Live state */
+.ca-state--live {
+  gap: 16px;
+}
+
+.ca-live {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ca-live-chip {
+  color: #ddd6fe;
+}
+
+.ca-live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+}
+
+/* What is in flight, once the campaign is live */
+.ca-publish-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.ca-publish-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ca-publish-state {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8b8b96;
+}
+
+.ca-publish-label {
+  color: #e4e4e7;
+}
+
+.ca-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 46px;
+}
+
+.ca-wave-bar {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.ca-wave-bar:nth-child(2) {
+  height: 24px;
+}
+.ca-wave-bar:nth-child(3) {
+  height: 34px;
+}
+.ca-wave-bar:nth-child(4) {
+  height: 20px;
+}
+.ca-wave-bar:nth-child(5) {
+  height: 40px;
+}
+.ca-wave-bar:nth-child(6) {
+  height: 28px;
+}
+
+.ca-wave-bar[data-lit] {
+  background: rgba(139, 92, 246, 0.55);
+}
+
+/* Rail */
+.ca-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 18px 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.ca-rail-label {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #71717a;
+}
+
+.ca-rail-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+.ca-rail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.ca-tag {
+  opacity: 0.9;
+}
