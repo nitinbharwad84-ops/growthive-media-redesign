@@ -29,7 +29,7 @@ export function CreatorApplicationSection() {
     >
       <div className="pointer-events-none absolute inset-0 bg-subtle-grid opacity-30" aria-hidden />
       <div
-        className="pointer-events-none absolute left-1/4 top-1/4 h-[440px] w-[620px] rounded-full bg-primary/8 blur-[150px]"
+        className="pointer-events-none absolute left-1/4 top-1/4 h-[440px] w-[620px] rounded-full bg-primary/10 blur-[150px]"
         aria-hidden
       />
 

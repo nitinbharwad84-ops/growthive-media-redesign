@@ -28,6 +28,7 @@ changes only grammar and world will fail it.
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
+| Growthive Media (agency site re-wrap, Nov 2026) | Marketing shell — headline + live panel hero, bento services, vertical timeline, split lead forms | Fixed top bar, route links, mobile drawer (no scroll-progress nav) | Live animated stageshow scene panel beside the headline (brief → match → plan → publish), stills elsewhere | One-page anchor stack (services → process → showcase → creators → contact) with dedicated route pages behind the footer | Two-column dual close (brand enquiry / creator application) instead of a single CTA band | A live product scene that keeps beating in the hero while the rest of the page stays static | Deep void (#08080C) + violet | 3005 |
 
 *(empty: your first build has nothing to clear, so build whatever the interview
 points at. From the second onwards, this table is the constraint.)*
@@ -42,6 +43,13 @@ act-count-and-length band. The shared columns are what the next build inherits
 as a constraint, so writing them down is the whole point.
 
 Nothing is taken yet.
+
+- **Live product scene inside the hero panel** — the hero holds a running
+  animation (not a video, not a still) while the rest of the page stays quiet.
+- **Dual lead-form close** — brand and creator forms sit side by side as the
+  page's terminal move, each with its own field set.
+- **Dark-void + violet** — near-black background, violet primary, violet accent
+  glow.
 
 ---
 

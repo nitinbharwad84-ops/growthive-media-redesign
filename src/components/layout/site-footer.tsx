@@ -77,7 +77,7 @@ export function SiteFooter() {
                     className="group flex items-center justify-between py-1 transition-colors hover:text-foreground"
                   >
                     <span className="truncate pr-2">{service.title}</span>
-                    <span className="font-mono text-xs text-muted-foreground/60 group-hover:text-primary">
+                    <span className="font-mono text-xs text-muted-foreground/80 group-hover:text-accent">
                       {service.number}
                     </span>
                   </Link>

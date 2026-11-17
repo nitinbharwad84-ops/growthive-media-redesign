@@ -52,7 +52,7 @@ export function ProcessSection() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 font-mono text-sm font-bold text-accent">
                     {step.step}
                   </span>
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
                     {step.detail}
                   </span>
                 </div>
@@ -63,7 +63,7 @@ export function ProcessSection() {
                 <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
               </div>
 
-              <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-5 font-mono text-xs text-muted-foreground/70">
+              <div className="mt-6 flex items-center justify-between border-t border-border/60 pt-5 font-mono text-xs text-muted-foreground/80">
                 <span>PHASE {step.step}</span>
                 {index < siteConfig.processSteps.length - 1 ? (
                   <ArrowRight className="h-5 w-5 text-muted-foreground/60 transition-transform group-hover:translate-x-1" />

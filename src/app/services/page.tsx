@@ -35,7 +35,7 @@ export default function ServicesPage() {
                 className="grid grid-cols-1 gap-6 rounded-2xl border border-border/60 bg-card/60 p-6 transition-colors duration-300 hover:border-primary/40 sm:p-8 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)]"
               >
                 <div>
-                  <span className="font-mono text-xs text-muted-foreground/70">
+                  <span className="font-mono text-xs text-muted-foreground/80">
                     {service.number}
                   </span>
                   <h2 className="mt-1 text-xl font-bold leading-snug text-foreground">

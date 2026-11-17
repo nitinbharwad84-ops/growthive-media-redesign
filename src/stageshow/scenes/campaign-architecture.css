@@ -105,6 +105,12 @@
   cursor: pointer;
 }
 
+/* The panel's action sits at its foot, so the frame reads as a product
+   screen rather than a column of text ending in a button. */
+.ca-state .ca-cta {
+  margin-top: auto;
+}
+
 /* Match rows */
 .ca-rows {
   display: flex;
@@ -196,41 +202,6 @@
 
 .ca-publish-label {
   color: #e4e4e7;
-}
-
-.ca-wave {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 46px;
-}
-
-.ca-wave-bar {
-  display: block;
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.07);
-}
-
-.ca-wave-bar:nth-child(2) {
-  height: 24px;
-}
-.ca-wave-bar:nth-child(3) {
-  height: 34px;
-}
-.ca-wave-bar:nth-child(4) {
-  height: 20px;
-}
-.ca-wave-bar:nth-child(5) {
-  height: 40px;
-}
-.ca-wave-bar:nth-child(6) {
-  height: 28px;
-}
-
-.ca-wave-bar[data-lit] {
-  background: rgba(139, 92, 246, 0.55);
 }
 
 /* Rail */

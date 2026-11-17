@@ -1,0 +1,21 @@
+/* The hero's product frame. The kit sizes and scales its own stage; this
+   only keeps the frame inside its column, so the scene never pushes the page
+   wider than the viewport. */
+
+.hero-stage {
+  width: 100%;
+  min-width: 0;
+}
+
+.hero-stage__frame {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.hero-stage__poster {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}

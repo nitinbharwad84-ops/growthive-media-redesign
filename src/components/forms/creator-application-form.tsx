@@ -92,7 +92,7 @@ export function CreatorApplicationForm() {
       setIsSubmitting(false);
       setSubmittedData(formData as CreatorApplicationFormData);
       setStatusMessage(
-        "Your application passed validation. Nothing has been sent or stored in this presentation build."
+        "Your application passed validation. Nothing was emailed or stored in this presentation build."
       );
     }, 600);
   };
@@ -130,6 +130,12 @@ export function CreatorApplicationForm() {
   if (submittedData) {
     return (
       <div className="space-y-6 rounded-2xl border border-border/60 bg-card/70 p-6 sm:p-10">
+        {/* The live region stays mounted across the swap, so the outcome is
+            announced when the form is replaced by this panel. */}
+        <p role="status" aria-live="polite" className="sr-only">
+          {statusMessage}
+        </p>
+
         <div className="flex items-center gap-3">
           <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-accent">
             <CheckCircle2 className="h-6 w-6" />
@@ -210,7 +216,7 @@ export function CreatorApplicationForm() {
             htmlFor="creator-name"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Name or creator handle <span className="text-primary">* required</span>
+            Name or creator handle <span className="text-accent">* required</span>
           </label>
           <Input
             id="creator-name"
@@ -235,7 +241,7 @@ export function CreatorApplicationForm() {
             htmlFor="creator-email"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Contact email <span className="text-primary">* required</span>
+            Contact email <span className="text-accent">* required</span>
           </label>
           <Input
             id="creator-email"
@@ -264,7 +270,7 @@ export function CreatorApplicationForm() {
             htmlFor="creator-platform"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Primary platform <span className="text-primary">* required</span>
+            Primary platform <span className="text-accent">* required</span>
           </label>
           <select
             id="creator-platform"
@@ -299,7 +305,7 @@ export function CreatorApplicationForm() {
             htmlFor="creator-url"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Channel or profile URL <span className="text-primary">* required</span>
+            Channel or profile URL <span className="text-accent">* required</span>
           </label>
           <Input
             id="creator-url"
@@ -327,7 +333,7 @@ export function CreatorApplicationForm() {
           htmlFor="creator-niche"
           className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
         >
-          Primary content niche <span className="text-primary">* required</span>
+          Primary content niche <span className="text-accent">* required</span>
         </label>
         <select
           id="creator-niche"
@@ -359,7 +365,7 @@ export function CreatorApplicationForm() {
           htmlFor="creator-bio"
           className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
         >
-          Brief introduction &amp; audience focus <span className="text-primary">* required</span>
+          Brief introduction &amp; audience focus <span className="text-accent">* required</span>
         </label>
         <Textarea
           id="creator-bio"

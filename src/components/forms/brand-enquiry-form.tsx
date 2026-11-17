@@ -94,7 +94,7 @@ export function BrandEnquiryForm() {
       setIsSubmitting(false);
       setSubmittedData(formData as BrandEnquiryFormData);
       setStatusMessage(
-        "Your enquiry passed validation. Nothing has been sent or stored in this presentation build."
+        "Your enquiry passed validation. Nothing was emailed or stored in this presentation build."
       );
     }, 600);
   };
@@ -134,6 +134,12 @@ export function BrandEnquiryForm() {
   if (submittedData) {
     return (
       <div className="space-y-6 rounded-2xl border border-border/60 bg-card/70 p-6 sm:p-10">
+        {/* The live region stays mounted across the swap, so the outcome is
+            announced when the form is replaced by this panel. */}
+        <p role="status" aria-live="polite" className="sr-only">
+          {statusMessage}
+        </p>
+
         <div className="flex items-center gap-3">
           <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-accent">
             <CheckCircle2 className="h-6 w-6" />
@@ -221,7 +227,7 @@ export function BrandEnquiryForm() {
             htmlFor="brand-name"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Your name <span className="text-primary">* required</span>
+            Your name <span className="text-accent">* required</span>
           </label>
           <Input
             id="brand-name"
@@ -246,7 +252,7 @@ export function BrandEnquiryForm() {
             htmlFor="brand-email"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Work email <span className="text-primary">* required</span>
+            Work email <span className="text-accent">* required</span>
           </label>
           <Input
             id="brand-email"
@@ -275,7 +281,7 @@ export function BrandEnquiryForm() {
             htmlFor="brand-company"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Company name <span className="text-primary">* required</span>
+            Company name <span className="text-accent">* required</span>
           </label>
           <Input
             id="brand-company"
@@ -303,7 +309,7 @@ export function BrandEnquiryForm() {
             htmlFor="brand-website"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Website or product URL <span className="font-normal normal-case text-muted-foreground/70">(optional)</span>
+            Website or product URL <span className="font-normal normal-case text-muted-foreground/80">(optional)</span>
           </label>
           <Input
             id="brand-website"
@@ -335,7 +341,7 @@ export function BrandEnquiryForm() {
             htmlFor="brand-type"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Campaign format <span className="text-primary">* required</span>
+            Campaign format <span className="text-accent">* required</span>
           </label>
           <select
             id="brand-type"
@@ -367,7 +373,7 @@ export function BrandEnquiryForm() {
             htmlFor="brand-budget"
             className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
           >
-            Budget range <span className="font-normal normal-case text-muted-foreground/70">(optional)</span>
+            Budget range <span className="font-normal normal-case text-muted-foreground/80">(optional)</span>
           </label>
           <select
             id="brand-budget"
@@ -391,7 +397,7 @@ export function BrandEnquiryForm() {
           htmlFor="brand-details"
           className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
         >
-          Campaign details &amp; objectives <span className="text-primary">* required</span>
+          Campaign details &amp; objectives <span className="text-accent">* required</span>
         </label>
         <Textarea
           id="brand-details"

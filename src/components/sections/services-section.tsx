@@ -70,7 +70,7 @@ export function ServicesSection() {
                     <span className="rounded-full border border-border/70 px-2.5 py-1 font-mono text-[11px] text-muted-foreground">
                       {service.tag}
                     </span>
-                    <span className="font-mono text-sm text-muted-foreground/60">
+                    <span className="font-mono text-sm text-muted-foreground/80">
                       {service.number}
                     </span>
                   </div>
@@ -86,7 +86,7 @@ export function ServicesSection() {
                 </div>
 
                 <div className="mt-6 border-t border-border/60 px-6 py-6 sm:px-8">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
                     Included deliverables
                   </span>
                   <ul className="mt-4 space-y-3">

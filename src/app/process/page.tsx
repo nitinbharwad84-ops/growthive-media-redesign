@@ -38,7 +38,7 @@ export default function ProcessPage() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 font-mono text-sm font-bold text-accent">
                     {step.step}
                   </span>
-                  <span className="mt-3 block font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                  <span className="mt-3 block font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
                     {step.detail}
                   </span>
                 </div>
@@ -54,13 +54,13 @@ export default function ProcessPage() {
 
                 <div className="space-y-4 text-sm">
                   <div>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
                       What we need
                     </span>
                     <p className="mt-1.5 leading-relaxed text-muted-foreground">{step.needs}</p>
                   </div>
                   <div>
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
                       What you get
                     </span>
                     <p className="mt-1.5 leading-relaxed text-foreground/90">{step.output}</p>

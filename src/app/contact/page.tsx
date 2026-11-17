@@ -62,7 +62,7 @@ export default function ContactPage() {
                 </Link>
               </Button>
               <div className="mt-6 border-t border-border/60 pt-5">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/80">
                   Agency contact
                 </span>
                 <a

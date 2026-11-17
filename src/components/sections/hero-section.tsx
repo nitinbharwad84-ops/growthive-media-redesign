@@ -17,7 +17,11 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 export function HeroSection() {
   const scrollTo = (selector: string) => {
     const el = document.querySelector(selector);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (!el) return;
+    // Honour the OS motion preference: CSS cannot override a scripted smooth
+    // scroll, so the check has to happen here.
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
   };
 
   const capabilities = [
@@ -29,11 +33,11 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden border-b border-border/50 bg-gradient-to-b from-surface/50 via-background to-background px-4 pb-20 pt-32 sm:px-6 lg:px-8 lg:pb-28 lg:pt-40"
+      className="relative overflow-hidden border-b border-border/50 bg-gradient-to-b from-surface/50 via-background to-background px-4 pb-20 pt-28 sm:px-6 lg:px-8 lg:pb-24 lg:pt-32"
     >
       <div className="pointer-events-none absolute inset-0 bg-subtle-grid opacity-70" aria-hidden />
       <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-primary/12 blur-[150px]"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-primary/10 blur-[150px]"
         aria-hidden
       />
 
@@ -44,7 +48,7 @@ export function HeroSection() {
             <span className="text-accent">AI &amp; Technology Influencer Marketing</span>
           </Badge>
 
-          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-extrabold leading-[1.06] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem] xl:text-6xl">
             The next big thing has a{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               creator behind it.
@@ -87,11 +91,11 @@ export function HeroSection() {
         </div>
 
         {/* The product frame */}
-        <div className="relative">
+        <div className="relative min-w-0">
           <div data-scene="campaign-architecture">
             <HeroStage poster="/stageshow/hero-poster.png" />
           </div>
-          <p className="mt-4 text-center text-xs text-muted-foreground/70">
+          <p className="mt-4 text-center text-xs text-muted-foreground/80">
             Illustration of the GrowthiveMedia delivery workflow.
           </p>
         </div>

@@ -55,7 +55,9 @@ const FORMATS = [
 ] as const;
 
 async function script(a: Act<CampaignArchitectureState>) {
-  await a.wait(700);
+  // The opening wait is longer than the kit's idle delay, so the cursor is
+  // hidden before the first move and fades in only as it reaches the panel.
+  await a.wait(1700);
 
   // 1. The brief is read.
   await a.move("cta-match");

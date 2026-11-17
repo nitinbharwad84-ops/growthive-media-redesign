@@ -4,6 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import { useReducedMotion } from "./kit/reduced-motion";
 import { CampaignArchitectureScene } from "./scenes/campaign-architecture";
+import "./hero-stage.css";
 
 /**
  * The hero's product frame.
