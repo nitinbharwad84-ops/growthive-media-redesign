@@ -47,3 +47,7 @@ Thumbs.db
 
 # Documentation
 docs/
+
+# Local agent / editor settings
+.claude/
+
