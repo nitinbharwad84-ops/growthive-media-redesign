@@ -18,6 +18,10 @@ export interface ProcessStep {
   title: string;
   description: string;
   detail: string;
+  /** What we need from the client to run this step well. */
+  needs: string;
+  /** What the client receives when the step is done. */
+  output: string;
 }
 
 export interface MontageItem {
@@ -26,9 +30,27 @@ export interface MontageItem {
   category: string;
   aspect: "landscape" | "portrait" | "square";
   duration: string;
-  viewsEstimate: string;
-  gradient: string;
+  /** How the format is produced. Never a view count or a reach figure. */
+  format: string;
   accentColor: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface DetailBlock {
+  title: string;
+  body: string;
+}
+
+export interface PageContent {
+  eyebrow: string;
+  headline: string;
+  description: string;
+  blocks: DetailBlock[];
+  faq: FaqItem[];
 }
 
 export interface BrandEnquiryFormData {

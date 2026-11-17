@@ -12,6 +12,7 @@ out/
 build/
 dist/
 *.tsbuildinfo
+.next-dev.log*
 
 # Android / Mobile
 .gradle/
