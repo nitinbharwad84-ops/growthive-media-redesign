@@ -3,7 +3,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#08080C",
   width: "device-width",
   initialScale: 1,
 };
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/logo-icon.png",
   },
 };
 
@@ -46,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light scroll-smooth">
-      <body className="min-h-screen bg-background text-foreground antialiased font-sans">
+    <html lang="en" className="dark scroll-smooth">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         {children}
       </body>
     </html>
